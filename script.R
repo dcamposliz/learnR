@@ -736,31 +736,25 @@ factor_gender_vector
 
 	# THIS ONE IS HARD / INTERESTING
 
-	# 'planets_df' and 'rings_vector' are pre-loaded in your workspace
+		# 'planets_df' and 'rings_vector' are pre-loaded in your workspace
 
-	# Select the information on planets with rings:
-	planets_with_rings_df <- planets_df[rings_vector,]
+		# Select the information on planets with rings:
+		planets_with_rings_df <- planets_df[rings_vector,]
 
-	# QUESTION
+		# this vector is selecting only the rows in which the name-value pair is
+		# rings : TRUE
+		# and output all associated columns as well as corresponding values
 
-	# How does R know to apply rings_vector to the rings column? 
-	# What if there was another column of logicals e.g. life.
+		planets_with_rings_df		# outputting the yielded data frame, for shits and giggles
 
-	# ANSWER
+			# QUESTION
 
-	# The 'rings_vector' is not applied to the rings column, 
-	# it is applied to the rows of the data frame. As you can see, 
-	# 'rings_vector' first contains 4 times FALSE, and 4 times TRUE afterwards. 
-	# This means the first four rows of the data frame are NOT selected, 
-	# and the last 4 are.
+				# How does R know to apply rings_vector to the rings column? What if there was another column of logicals e.g. life.
 
-	# Notice how 'rings_vector' corresponds with the 'rings' column in the 'planets_df' 
-	# data frame. You could also use this column as row indices: 'planets_df[planets_df$rings, ]'. 
-	# If there was a life column in the data frame with logicals, you could use this as row 
-	# indices to select the rows for which the 'life' value is TRUE.
+			# ANSWER
 
-
-
+				# The 'rings_vector' is not applied to the rings column, it is applied to the rows of the data frame. As you can see, 'rings_vector' first contains 4 times FALSE, and 4 times TRUE afterwards. This means the first four rows of the data frame are NOT selected, and the last 4 are.
+				# Notice how 'rings_vector' corresponds with the 'rings' column in the 'planets_df' data frame. You could also use this column as row indices: 'planets_df[planets_df$rings, ]'. If there was a life column in the data frame with logicals, you could use this as row indices to select the rows for which the 'life' value is TRUE.
 
 ####
 ####
