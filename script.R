@@ -3,7 +3,7 @@
 ##
 ###
 
-# R, motherfucker
+# learn R, motherfucker
 
 ###
 ##
@@ -355,141 +355,141 @@ roulette_winning_days <- roulette_vector[selection_vector]
 
 # Construction of a matrix with 3 rows that contain the numbers 1 up to 9
 
-matrix(1:9, byrow = TRUE, nrow = 3)
+		matrix(1:9, byrow = TRUE, nrow = 3)
 
-##
+	##
 
 # Box office Star Wars: In Millions!
-# The first element: US, the second element: Non-US 
-new_hope <- c(460.998, 314.4)
-empire_strikes <- c(290.475, 247.900)
-return_jedi <- c(309.306, 165.8)
+	# The first element: US, the second element: Non-US 
+	new_hope <- c(460.998, 314.4)
+	empire_strikes <- c(290.475, 247.900)
+	return_jedi <- c(309.306, 165.8)
 
-dataVector <- c(new_hope, empire_strikes, return_jedi)
+	dataVector <- c(new_hope, empire_strikes, return_jedi)
 
-# Add your code below to Construct matrix
-star_wars_matrix <- matrix(dataVector, byrow = TRUE, nrow = 3)
-star_wars_matrix
+	# Add your code below to Construct matrix
+	star_wars_matrix <- matrix(dataVector, byrow = TRUE, nrow = 3)
+	star_wars_matrix
+
+	##
+
+# Box office Star Wars: In Millions (!) 
+	# First element: US, Second element: non-US 
+	new_hope <- c(460.998, 314.4)
+	empire_strikes <- c(290.475, 247.900)
+	return_jedi <- c(309.306, 165.8)
+
+	# Construct matrix
+	star_wars_matrix <- matrix(c(new_hope, empire_strikes, return_jedi), nrow = 3, byrow = TRUE)
+	star_wars_matrix
+	# Add your code here such that rows and columns of star_wars_matrix have a name!
+
+	rownames(star_wars_matrix) <- c("A New Hope", "The Empire Strikes Back", "Return of the Jedi")
+	colnames(star_wars_matrix) <- c("US","non-US")
+
+	##
+
+# Box office Star Wars: In Millions (!) 
+	# Construct matrix 
+	box_office_all <- c(461, 314.4, 290.5, 247.9, 309.3, 165.8)
+	movie_names <- c("A New Hope","The Empire Strikes Back","Return of the Jedi")
+	col_titles <- c("US","non-US")
+	star_wars_matrix <- matrix(box_office_all, nrow=3, byrow = TRUE, dimnames = list(movie_names, col_titles))
+
+	# Your code here
+	worldwide_vector <- rowSums(star_wars_matrix)
+	worldwide_vector
+
+	##
+
+# Box office Star Wars: In Millions (!) 
+	# Construct matrix
+	box_office_all <- c(461, 314.4, 290.5, 247.9, 309.3, 165.8)
+	movie_names <- c("A New Hope","The Empire Strikes Back","Return of the Jedi")
+	col_titles <- c("US","non-US")
+	star_wars_matrix <- matrix(box_office_all, nrow = 3, byrow = TRUE, dimnames = list(movie_names, col_titles))
+
+	# The worldwide box office figures
+	worldwide_vector <- rowSums(star_wars_matrix)
+
+	# Bind the new variable worldwide_vector as a column to star_wars_matrix
+	all_wars_matrix <- cbind(star_wars_matrix, worldwide_vector)
+	all_wars_matrix
+
+	##
+
+	# Matrix that contains the first trilogy box office
+	star_wars_matrix  
+
+	# Matrix that contains the second trilogy box office
+	star_wars_matrix2 
+
+	# Combine both Star Wars trilogies in one matrix
+	all_wars_matrix <- rbind(star_wars_matrix, star_wars_matrix2)
+
+	##
+
+	# Print box office Star Wars
+	all_wars_matrix
+
+	# Total revenue for US and non-US
+	total_revenue_vector <- colSums(all_wars_matrix)
+
+	##
+
+# Box office Star Wars: In Millions (!) 
+	# Construct matrix 
+	box_office_all <- c(461, 314.4, 290.5, 247.9, 309.3, 165.8)
+	movie_names <- c("A New Hope","The Empire Strikes Back","Return of the Jedi")
+	col_titles <- c("US","non-US")
+	star_wars_matrix <- matrix(box_office_all, nrow = 3, byrow = TRUE, dimnames = list(movie_names, col_titles))
+
+	# Print the star_wars_matrix to the console
+	star_wars_matrix 
+
+	# Average non-US revenue per movie
+	non_us_all  <- mean(star_wars_matrix[,2])
+	non_us_all
+	  
+	# Average non-US revenue of first two movies
+	non_us_some <- mean(star_wars_matrix[1:2,2])
+	non_us_some
 
 ##
 
 # Box office Star Wars: In Millions (!) 
-# First element: US, Second element: non-US 
-new_hope <- c(460.998, 314.4)
-empire_strikes <- c(290.475, 247.900)
-return_jedi <- c(309.306, 165.8)
+	# Construct matrix
+	box_office_all <- c(461, 314.4, 290.5, 247.9, 309.3, 165.8)
+	movie_names <- c("A New Hope","The Empire Strikes Back","Return of the Jedi")
+	col_titles <- c("US","non-US")
+	star_wars_matrix <- matrix(box_office_all, nrow = 3, byrow = TRUE, dimnames = list(movie_names, col_titles))
 
-# Construct matrix
-star_wars_matrix <- matrix(c(new_hope, empire_strikes, return_jedi), nrow = 3, byrow = TRUE)
-star_wars_matrix
-# Add your code here such that rows and columns of star_wars_matrix have a name!
-
-rownames(star_wars_matrix) <- c("A New Hope", "The Empire Strikes Back", "Return of the Jedi")
-colnames(star_wars_matrix) <- c("US","non-US")
-
-##
-
-# Box office Star Wars: In Millions (!) 
-# Construct matrix 
-box_office_all <- c(461, 314.4, 290.5, 247.9, 309.3, 165.8)
-movie_names <- c("A New Hope","The Empire Strikes Back","Return of the Jedi")
-col_titles <- c("US","non-US")
-star_wars_matrix <- matrix(box_office_all, nrow=3, byrow = TRUE, dimnames = list(movie_names, col_titles))
-
-# Your code here
-worldwide_vector <- rowSums(star_wars_matrix)
-worldwide_vector
+	# Estimation of visitors
+	visitors <- star_wars_matrix/5
+	  
+	# Print the estimate to the console
+	visitors
 
 ##
 
 # Box office Star Wars: In Millions (!) 
-# Construct matrix
-box_office_all <- c(461, 314.4, 290.5, 247.9, 309.3, 165.8)
-movie_names <- c("A New Hope","The Empire Strikes Back","Return of the Jedi")
-col_titles <- c("US","non-US")
-star_wars_matrix <- matrix(box_office_all, nrow = 3, byrow = TRUE, dimnames = list(movie_names, col_titles))
+	# Construct matrix 
+	box_office_all <- c(461, 314.4, 290.5, 247.9, 309.3, 165.8)
+	movie_names <- c("A New Hope","The Empire Strikes Back","Return of the Jedi")
+	col_titles <- c("US","non-US")
+	star_wars_matrix <- matrix(box_office_all, nrow = 3, byrow = TRUE, dimnames = list(movie_names, col_titles))
+	ticket_prices_matrix <- matrix(c(5, 5, 6, 6, 7, 7), nrow = 3, byrow = TRUE, dimnames = list(movie_names, col_titles)) 
 
-# The worldwide box office figures
-worldwide_vector <- rowSums(star_wars_matrix)
+	star_wars_matrix
 
-# Bind the new variable worldwide_vector as a column to star_wars_matrix
-all_wars_matrix <- cbind(star_wars_matrix, worldwide_vector)
-all_wars_matrix
+	# Estimated number of visitors
+	visitors <- star_wars_matrix / ticket_prices_matrix
 
-##
+	# Average number of US visitors
+	average_us_visitors <- mean(star_wars_matrix[,1] / ticket_prices_matrix[,1])
 
-# Matrix that contains the first trilogy box office
-star_wars_matrix  
-
-# Matrix that contains the second trilogy box office
-star_wars_matrix2 
-
-# Combine both Star Wars trilogies in one matrix
-all_wars_matrix <- rbind(star_wars_matrix, star_wars_matrix2)
-
-##
-
-# Print box office Star Wars
-all_wars_matrix
-
-# Total revenue for US and non-US
-total_revenue_vector <- colSums(all_wars_matrix)
-
-##
-
-# Box office Star Wars: In Millions (!) 
-# Construct matrix 
-box_office_all <- c(461, 314.4, 290.5, 247.9, 309.3, 165.8)
-movie_names <- c("A New Hope","The Empire Strikes Back","Return of the Jedi")
-col_titles <- c("US","non-US")
-star_wars_matrix <- matrix(box_office_all, nrow = 3, byrow = TRUE, dimnames = list(movie_names, col_titles))
-
-# Print the star_wars_matrix to the console
-star_wars_matrix 
-
-# Average non-US revenue per movie
-non_us_all  <- mean(star_wars_matrix[,2])
-non_us_all
-  
-# Average non-US revenue of first two movies
-non_us_some <- mean(star_wars_matrix[1:2,2])
-non_us_some
-
-##
-
-# Box office Star Wars: In Millions (!) 
-# Construct matrix
-box_office_all <- c(461, 314.4, 290.5, 247.9, 309.3, 165.8)
-movie_names <- c("A New Hope","The Empire Strikes Back","Return of the Jedi")
-col_titles <- c("US","non-US")
-star_wars_matrix <- matrix(box_office_all, nrow = 3, byrow = TRUE, dimnames = list(movie_names, col_titles))
-
-# Estimation of visitors
-visitors <- star_wars_matrix/5
-  
-# Print the estimate to the console
-visitors
-
-##
-
-# Box office Star Wars: In Millions (!) 
-# Construct matrix 
-box_office_all <- c(461, 314.4, 290.5, 247.9, 309.3, 165.8)
-movie_names <- c("A New Hope","The Empire Strikes Back","Return of the Jedi")
-col_titles <- c("US","non-US")
-star_wars_matrix <- matrix(box_office_all, nrow = 3, byrow = TRUE, dimnames = list(movie_names, col_titles))
-ticket_prices_matrix <- matrix(c(5, 5, 6, 6, 7, 7), nrow = 3, byrow = TRUE, dimnames = list(movie_names, col_titles)) 
-
-star_wars_matrix
-
-# Estimated number of visitors
-visitors <- star_wars_matrix / ticket_prices_matrix
-
-# Average number of US visitors
-average_us_visitors <- mean(star_wars_matrix[,1] / ticket_prices_matrix[,1])
-
-# Average number of non-US visitors
-average_non_us_visitors <- mean(star_wars_matrix[,2] / ticket_prices_matrix[,2])
+	# Average number of non-US visitors
+	average_non_us_visitors <- mean(star_wars_matrix[,2] / ticket_prices_matrix[,2])
 
 #
 #
@@ -520,63 +520,63 @@ factor_gender_vector
 ## What's a factor and why would you use it? (3)
 ##
 
-## 2 types of factors
-## nominal factors - categories that ARE NOT be ordered, like animals
-## ordinal factors - categories that ARE ordered, like numbers
+	# 2 types of factors
+	# nominal factors - categories that ARE NOT be ordered, like animals
+	# ordinal factors - categories that ARE ordered, like numbers
 
-animals_vector <- c("Elephant", "Giraffe", "Donkey", "Horse")
-temperature_vector <- c("High", "Low", "High","Low", "Medium")
+	animals_vector <- c("Elephant", "Giraffe", "Donkey", "Horse")
+	temperature_vector <- c("High", "Low", "High","Low", "Medium")
 
-factor_animals_vector <- factor(animals_vector)
-factor_animals_vector
-factor_temperature_vector <- factor(temperature_vector, order = TRUE, levels = c("Low", "Medium", "High"))
-factor_temperature_vector
+	factor_animals_vector <- factor(animals_vector)
+	factor_animals_vector
+	factor_temperature_vector <- factor(temperature_vector, order = TRUE, levels = c("Low", "Medium", "High"))
+	factor_temperature_vector
 
-##
+	##
 
-# Code to form the factor vector
-survey_vector <- c("M", "F", "F", "M", "M")
-factor_survey_vector <- factor(survey_vector)
+	# Code to form the factor vector
+	survey_vector <- c("M", "F", "F", "M", "M")
+	factor_survey_vector <- factor(survey_vector)
 
-# Specify the levels of 'factor_survey_vector'
-levels(factor_survey_vector) <- c("Female","Male")
+	# Specify the levels of 'factor_survey_vector'
+	levels(factor_survey_vector) <- c("Female","Male")
 
-factor_survey_vector
+	factor_survey_vector
 
-##
+	##
 
-survey_vector <- c("M", "F", "F", "M", "M")
-factor_survey_vector <- factor(survey_vector)
-levels(factor_survey_vector) <- c("Female", "Male")
-factor_survey_vector
+	survey_vector <- c("M", "F", "F", "M", "M")
+	factor_survey_vector <- factor(survey_vector)
+	levels(factor_survey_vector) <- c("Female", "Male")
+	factor_survey_vector
 
-# Type your code here for 'survey_vector'
-summary(survey_vector)
+	# Type your code here for 'survey_vector'
+	summary(survey_vector)
 
-# Type your code here for 'factor_survey_vector'
-summary(factor_survey_vector)
+	# Type your code here for 'factor_survey_vector'
+	summary(factor_survey_vector)
 
 ##
 ## Battle of the sexes
 ##
 
-survey_vector <- c("M", "F", "F", "M", "M")
-factor_survey_vector <- factor(survey_vector)
-levels(factor_survey_vector) <- c("Female", "Male")
+	survey_vector <- c("M", "F", "F", "M", "M")
+	factor_survey_vector <- factor(survey_vector)
+	levels(factor_survey_vector) <- c("Female", "Male")
 
-# Male
-factor_survey_vector[1] 
-# Female
-factor_survey_vector[2] 
-# Battle of the sexes: Male 'larger' than female?
-factor_survey_vector[1] > factor_survey_vector[2] 
+	# Male
+	factor_survey_vector[1] 
+	# Female
+	factor_survey_vector[2] 
+	# Battle of the sexes: Male 'larger' than female?
+	factor_survey_vector[1] > factor_survey_vector[2] 
 
 ##
 ## Ordered factors
 ##
 
-# Create 'speed_vector'
-speed_vector <- c("Fast","Slow","Slow","Fast","Ultra-fast")
+	# Create 'speed_vector'
+	speed_vector <- c("Fast","Slow","Slow","Fast","Ultra-fast")
 
 ##
 ## Ordered factors (2)
@@ -720,48 +720,185 @@ speed_vector <- c("Fast","Slow","Slow","Fast","Ultra-fast")
 ## Only planets with rings
 ##
 
-# dollar sign $ has a trick up the sleves, mofucka
+	# dollar sign $ has a trick up the sleves, mofucka - you can basically
+	# select a column using $ instead of using DF[x,y] notation
+
+	# 'planets_df' is pre-loaded in your workspace
+
+	# Create the rings_vector
+	rings_vector <- planets_df$rings
+
+####
+####
+###### - Only planets with rings (2)
+####
+####
+
+	# THIS ONE IS HARD / INTERESTING
+
+	# 'planets_df' and 'rings_vector' are pre-loaded in your workspace
+
+	# Select the information on planets with rings:
+	planets_with_rings_df <- planets_df[rings_vector,]
+
+	# QUESTION
+
+	# How does R know to apply rings_vector to the rings column? 
+	# What if there was another column of logicals e.g. life.
+
+	# ANSWER
+
+	# The 'rings_vector' is not applied to the rings column, 
+	# it is applied to the rows of the data frame. As you can see, 
+	# 'rings_vector' first contains 4 times FALSE, and 4 times TRUE afterwards. 
+	# This means the first four rows of the data frame are NOT selected, 
+	# and the last 4 are.
+
+	# Notice how 'rings_vector' corresponds with the 'rings' column in the 'planets_df' 
+	# data frame. You could also use this column as row indices: 'planets_df[planets_df$rings, ]'. 
+	# If there was a life column in the data frame with logicals, you could use this as row 
+	# indices to select the rows for which the 'life' value is TRUE.
 
 
 
-##
-## 
-##
+
+####
+####
+###### - 
+####
+####
 
 
 
-##
-## 
-##
+
+####
+####
+###### - 
+####
+####
 
 
 
-##
-## 
-##
+
+####
+####
+###### - 
+####
+####
 
 
 
-##
-## 
-##
+
+####
+####
+###### - 
+####
+####
 
 
 
-##
-## 
-##
+
+####
+####
+###### - 
+####
+####
 
 
 
-##
-## 
-##
+
+####
+####
+###### - 
+####
+####
 
 
 
-##
-## 
-##
+
+####
+####
+###### - 
+####
+####
 
 
+
+
+####
+####
+###### - 
+####
+####
+
+
+
+
+####
+####
+###### - 
+####
+####
+
+
+
+
+####
+####
+###### - 
+####
+####
+
+
+
+
+####
+####
+###### - 
+####
+####
+
+
+
+
+####
+####
+###### - 
+####
+####
+
+
+
+
+####
+####
+###### - 
+####
+####
+
+
+
+
+####
+####
+###### - 
+####
+####
+
+
+
+
+####
+####
+###### - 
+####
+####
+
+
+
+
+####
+####
+###### - 
+####
+####
