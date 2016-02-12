@@ -696,6 +696,15 @@ factor_gender_vector
 	# All data from the last three planets
 	furthest_planets_df <- data.frame(planets_df[6:8,])
 
+	# cool, it seems as though we do not need to run the data.frame() method
+	# because the data is already of a certain format, whether it be a data-frame,
+	# or a fucking verctor :D
+
+	# that is to say, we could have run this instead:
+
+	closest_planets_df <- planets_df[1:3,]
+	furthest_planets_df <- planets_df[6:8,]	
+
 	# Have a look:
 	closest_planets_df
 	furthest_planets_df	
@@ -758,20 +767,34 @@ factor_gender_vector
 
 ####
 ####
-###### - 
+###### - Only planets with rings but shorter
 ####
 ####
 
+	# NOW we are talking !!
 
+	# 'planets_df' is pre-loaded in your workspace
 
+	# Planets that are smaller than planet Earth:
+	small_planets_df  <- subset(planets_df, subset = diameter < 1)
 
 ####
 ####
-###### - 
+###### - Sorting
 ####
 ####
 
+	# learning the order() method to sort some shit !
 
+	# Just play around with the order function in the console to see how it works!
+
+	# lets declare a vector variable, namely, v
+
+	v <- c(1,2,3,4,5,6,7,78,5,4554,23534,534,534,534,534,53,524,54,35324,343465345)
+
+	order(v)
+
+	v[order(v)]
 
 
 ####
