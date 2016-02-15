@@ -799,11 +799,24 @@ factor_gender_vector
 
 ####
 ####
-###### - 
+###### - Sorting your data frame
 ####
 ####
 
+	## another hard one
 
+	# 'planets_df' is pre-loaded in your workspace
+	planets_df
+
+	# What is the correct ordering based on the planets_df$diameter variable?
+
+	positions <- order(planets_df$diameter, decreasing = TRUE)
+	positions
+
+	largest_first_df <- planets_df[positions,]
+	largest_first_df
+
+	# as always, simpler than we anticipated :)
 
 
 ####
