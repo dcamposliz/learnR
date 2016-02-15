@@ -818,117 +818,138 @@ factor_gender_vector
 
 	# as always, simpler than we anticipated :)
 
+##
+##
+##
+##
 
-####
-####
-###### - 
-####
-####
+# OKAY, quick recap
 
+	# VECTORS (one dimensional array): can hold numeric, character or logical values. The elements in one vector all have the same datatype.
 
+	# MATRICES (two dimensional array): can hold numeric, character or logical values. The elements in one matrix all have the same datatype.
 
+	# DATA FRAMES (two-dimensional objects): can hold numeric, character or logical values. Within a column all elements have the same data type, but different columns can be of different data type.
 
-####
-####
-###### - 
-####
-####
+#
+#
+##
+###
 
+# LISTS, motherfucker
 
-
-
-####
-####
-###### - 
-####
-####
-
-
+###
+##
+#
+#
 
 
 ####
 ####
-###### - 
+###### - Lists, why would you need them?
+####
+####
+
+	# nothing interesting here
+
+
+####
+####
+###### - Lists, why would you need them? (2)
+####
+####
+
+	# A list in R is similar to your to-do list at work or school: the different items on that list most likely differ in length, characteristic, type of activity that has to do be done, …
+
+	# A list in R allows you to gather a variety of objects under one name (that is, the name of the list) in an ordered way. These objects can be matrices, vectors, data frames, even other lists, etc. It is not even required that these objects are related to each other. Just like your to-do list :-).
+
+	# Maybe you can even say that a list is a kind of super data type ;-)
+
+
+####
+####
+###### - Creating a list
+####
+####
+
+	# Vector with numerics from 1 up to 10
+	my_vector <- 1:10 
+	# Matrix with numerics from 1 up to 9
+	my_matrix <- matrix(1:9, ncol = 3)
+	# First 10 elements of the built-in data frame 'mtcars'
+	my_df <- mtcars[1:10,]
+
+	# Construct list with these different elements:
+	my_list <- list(my_vector, my_matrix, my_df)
+
+####
+####
+###### - Creating a named list
+####
+####
+
+	# Vector with numerics from 1 up to 10
+	my_vector <- 1:10 
+	# Matrix with numerics from 1 up to 9
+	my_matrix <- matrix(1:9, ncol = 3)
+	# First 10 elements of the built-in data frame 'mtcars'
+	my_df <- mtcars[1:10,]
+
+	# Construct 'my_list' with these different elements:
+	my_list <- list("vec" = my_vector, "mat" = my_matrix, "df" = my_df)
+
+	# Print 'my_list' to the console
+	my_list
+
+####
+####
+###### - Creating a named list (2)
+####
+####
+
+	# The vectors 'actors' and 'reviews' are pre-loaded in the workspace
+
+	# Create the list 'shining_list'
+	shining_list <- list("moviename" = "The Shining", "actors" = actors, "reviews" = reviews)
+
+	shining_list
+
+
+####
+####
+###### - Lists, why would you need them?
+####
+####
+
+	# also simpler, as expected
+
+	# 'shining_list' is already pre-loaded in the workspace
+
+	# Define 'last_actor'
+	last_actor <- tail(shining_list$actors, n=1)
+
+	last_actor
+
+# Define 'second_review'
+second_review <- shining_list$reviews[2,]
+second_review
+
+
+####
+####
+###### - Adding more movie information to the list
 ####
 ####
 
 
 
+	# 'shining_list', the list containing moviename, actors and reviews, is pre-loaded in the workspace
 
-####
-####
-###### - 
-####
-####
+	# We forgot something; add the year to shining_list
+	shining_list_full <- c(shining_list,"year" = 1980 )
 
+	# Have a look at shining_list_full
+	shining_list_full
+	str(shining_list_full)
 
-
-
-####
-####
-###### - 
-####
-####
-
-
-
-
-####
-####
-###### - 
-####
-####
-
-
-
-
-####
-####
-###### - 
-####
-####
-
-
-
-
-####
-####
-###### - 
-####
-####
-
-
-
-
-####
-####
-###### - 
-####
-####
-
-
-
-
-####
-####
-###### - 
-####
-####
-
-
-
-
-####
-####
-###### - 
-####
-####
-
-
-
-
-####
-####
-###### - 
-####
-####
+	# BOOM! last exercise :)
