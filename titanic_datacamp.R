@@ -12,6 +12,12 @@
 ##
 #
 
+############
+
+# CHAPTER 1 - Raising anchor
+
+############
+
 ####
 ####
 ###### - intro to datacamp
@@ -127,21 +133,83 @@
 	# Set Survived to 1 if Sex equals "female"
 	test_one$Survived[test_one$Sex == "female"] <- 1
 
+
+
+############
+
+# CHAPTER 2 - From icebergs to trees
+
+############
+
 ####
 ####
-###### - 
+###### - Intro to decision trees
 ####
 ####
 
+	# MY NOTES __________________
+	# so, decision-trees are awesome because they slice and dice data for you.
+	# the decision-tree algorithm starts at the root-node
+	# scans all the variables for the best ones to split on
+	# then it goes down by one level
+	# then there is prediction at the end of it
+	# this reminds me of game theory things + regression analysis
+	# how does the algorithm work?
 
+	# we access this decision-tree algorithm in the rpart library:
+	library(rpart)
 
 ####
 ####
-###### - 
+###### - Creating your first decision tree
 ####
 ####
 
+	# You will use the the rpart() function inside of the rpart package to 
+	# build your first decision tree. The rpart() function takes multiple 
+	# arguments (type in ?rpart and discover it yourself):
 
+	# formula: The variable of interest, and the variables used for prediction. 
+	# You write this down as formula = Survived ~ Sex + Age.
+	# data: The data set used to build the decision tree (here train).
+	# method: Type of prediction you want. Here you predict a categorical variable 
+	# (dead or alive), so you're classifying: method = "class".
+	# So to summarize, your code would look something like this:
+
+	# my_tree <- rpart(Survived ~ Sex + Age, 
+	#                  data = train, 
+	#                  method ="class")
+	# To visualize the resulting decision tree, 
+	# you can use the functions plot() and text():
+
+	# plot(my_tree)
+	# text(my_tree)
+	# If you tried out the above commands, 
+	# you probably noticed the resulting graphs are not that informative. 
+	# Luckily, R has packages to make these plots 
+	# way fancier: rattle, rpart.plot, and RColorBrewer.
+
+	# Your train and test set are still loaded in
+	str(train)
+	str(test)
+
+
+	# Build the decision tree
+	my_tree_two <- rpart(Survived ~ Sex + Age, train, method = "class")
+
+	# Visualize the decision tree using plot() and text()
+	plot(my_tree_two)
+	text(my_tree_two)
+
+	# Load in the packages to create a fancified version of your tree
+	library(rattle)
+	library(rpart.plot)
+	library(RColorBrewer)
+
+	# Time to plot your fancy tree
+	fancyRpartPlot(my_tree_two)
+
+	## THIS SHIT IS STILL WRONG
 
 ####
 ####
