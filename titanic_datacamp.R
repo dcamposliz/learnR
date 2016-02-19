@@ -195,7 +195,7 @@
 
 
 	# Build the decision tree
-	my_tree_two <- rpart(Survived ~ Sex + Age, train, method = "class")
+	my_tree_two <- rpart(Survived ~ Pclass + Sex + Age + SibSp + Parch + Fare + Embarked, data = train, method ="class")
 
 	# Visualize the decision tree using plot() and text()
 	plot(my_tree_two)
