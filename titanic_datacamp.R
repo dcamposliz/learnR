@@ -213,43 +213,129 @@
 
 ####
 ####
-###### - 
+###### - Interpreting your decision tree
 ####
 ####
 
+	# based on the answer from the decision-tree
 
+	# we find that the random variables with largest coefficients are:
 
+		# sex
+		# age
+		# passenger class
+		# number of siblings/spouses aboard
+		# fare
+		
 ####
 ####
-###### - 
-####
-####
-
-
-
-####
-####
-###### - 
-####
-####
-
-
-
-####
-####
-###### - 
+###### - Predict and submit to Kaggle
 ####
 ####
 
+	# Your train and test set are still loaded in
+	str(train)
+	str(test)
 
+	# Make your prediction using the test set
+		# my_tree_two (arg) is the rpart data.frame that it takes in
+		# test (arg), I am not entirely sure what this is doing here, except map this onto the test data set?
+		# type="class" (arg) defines the type of data result we extract from the predict function
+	my_prediction <- predict(my_tree_two, test, type = "class")
+	my_prediction
+
+	# Create a data frame with two columns: PassengerId & Survived. Survived contains your predictions
+	my_solution <- data.frame(PassengerId = test$PassengerId, Survived = my_prediction)
+	my_solution
+
+	# Check that your data frame has 418 entries
+	nrow(my_solution)
+
+	# Write your solution to a csv file with the name my_solution.csv
+	write.csv(my_solution, file = "my_solution.csv", row.names=FALSE)
 
 ####
 ####
-###### - 
+###### - Overfitting, the iceberg of decision trees
 ####
 ####
 
+	# Your train and test set are still loaded in
+	str(train)
+	str(test)
 
+	# as it relates to rpart, we can get even fancier with our predictions
+	# we have two other parameters
+	    # cp - determines when splitting of decision tree stops
+	    # minsplit - monitors the amount of observations in a bucket, 
+
+	# Create a new decision tree my_tree_three
+	my_tree_three <- rpart(Survived ~ Pclass + Sex + Age + SibSp + Parch + Fare + Embarked, data = train, method = "class", control = rpart.control(cp = 0, minsplit = 50))
+
+	  
+	# Visualize your new decision tree
+	fancyRpartPlot(my_tree_three)
+
+####
+####
+###### - Re-engineering our Titanic data set
+####
+####
+
+	# Data Science is an art that benefits from a human element. Enter feature engineering: creatively engineering your own features by combining the different existing variables.
+
+	# Your train and test set are still loaded in
+	str(train)
+	str(test)
+
+	# create a new train set with the new variable
+
+	# through our intuition we 'determine' that larger families may have a larger chance of drowning
+	# and family size is a function of number of siblings and spouces + number of parents and children
+	# so we make a new variable, called family size
+	train_two <- train
+	train_two$family_size <- train$SibSp + train$Parch + 1
+
+	# Create a new decision tree my_tree_three
+	my_tree_four <- rpart(Survived ~ Pclass + Sex + Age + SibSp + Parch + Fare + Embarked + family_size, data = train_two, method = "class", control = rpart.control(cp = 0, minsplit = 50))
+	  
+	# Visualize your new decision tree
+	fancyRpartPlot(my_tree_four)
+
+####
+####
+###### - Passenger Title and survival rate
+####
+####
+
+	# train_new and test_new are available in the workspace
+	str(train_new)
+	str(test_new)
+
+	# Create a new model `my_tree_five`
+	my_tree_five <- rpart(Survived ~ Pclass + Sex + Age + SibSp + Parch + Fare + Embarked + Title, data = train_new, method = "class")
+
+	    # once again, with rpart we predict an 'endogenous' variable
+	    # so we throw the 'exogenous'
+	    # and these arguments: 
+
+	# Visualize your new decision tree
+	fancyRpartPlot(my_tree_five)
+
+	# Make your prediction using `my_tree_five` and `test_new`
+	my_prediction <- predict(my_tree_five, test_new, type = "class")
+
+	# Create a data frame with two columns: PassengerId & Survived. Survived contains your predictions
+	my_solution <- data.frame(PassengerId = test_new$PassengerId, Survived = my_prediction)
+
+	# Write your solution away to a csv file with the name my_solution.csv
+	write.csv(my_solution, file = "my_solution.csv", row.names = FALSE)
+
+############
+
+# CHAPTER 3 - WHAT IS A RANDOM FOREST
+
+############
 
 ####
 ####
