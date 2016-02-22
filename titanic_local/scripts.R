@@ -47,11 +47,17 @@ library(RColorBrewer)
 # Time to plot your fancy tree
 fancyRpartPlot(survived_Tree)
 
+survived_Prediction <- predict(survived_Tree, test, type="class")
 
+survived_Prediction
 
+Survived_Solution <- data.frame(PassengerId = test$PassengerId, Survived = survived_Prediction)
 
+Survived_Solution
 
+nrow(Survived_Solution)
 
+write.csv(Survived_Solution, file = "Survived_Solution.csv", row.names=FALSE)
 
 
 
