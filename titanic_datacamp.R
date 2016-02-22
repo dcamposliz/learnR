@@ -209,7 +209,6 @@
 	# Time to plot your fancy tree
 	fancyRpartPlot(my_tree_two)
 
-	## THIS SHIT IS STILL WRONG
 
 ####
 ####
