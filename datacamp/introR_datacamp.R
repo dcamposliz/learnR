@@ -10,6 +10,9 @@
 #
 #
 
+pdf("introR_datacamp.pdf")
+
+
 #	https://campus.datacamp.com/courses/free-introduction-to-r/chapter-1-intro-to-basics-1?ex=2
 
 ##

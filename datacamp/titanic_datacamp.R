@@ -12,6 +12,8 @@
 ##
 #
 
+pdf("titanic_datacamp.pdf")
+
 ############
 
 # CHAPTER 1 - Raising anchor
