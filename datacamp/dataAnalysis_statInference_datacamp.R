@@ -383,7 +383,9 @@ pdf("dataAnalyis_statInference.pdf")
 #############	Question 6
 #############
 
-	
+	# what proportion of the sample reports being in excellent health?
+
+	summary(cdc$)
 
 #############
 #############
